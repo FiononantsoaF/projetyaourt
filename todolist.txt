@@ -1,0 +1,59 @@
+1. Charges directes (liées directement à la production des yaourts) :
+    Matières premières : coût du lait, fruits secs, sucre, additifs (arômes, conservateurs).
+    Main d'œuvre directe : salaire des employés affectés directement à la fabrication des yaourts (ouvriers de production).
+    Emballage : coût des pots de yaourt, étiquettes, opercules, etc.
+    Énergie utilisée pour la production : électricité, gaz, eau liés à la production.
+    
+2. Charges indirectes (liées au fonctionnement général de l'entreprise) :
+    Main d'œuvre indirecte : salaire du personnel administratif, de maintenance, logistique, etc.
+    Charges d'amortissement : coût des machines de production, bâtiments, véhicules.
+    Frais de maintenance : réparation et entretien des machines.
+    Frais généraux : loyer, assurance, téléphone, internet, électricité non liée à la production directe.
+    Marketing et distribution : coûts des campagnes de publicité, frais de transport et de livraison des yaourts.
+    Autres charges : taxes, frais de gestion, honoraires d'experts comptables.
+
+3. Calcul du prix de vente de chaque pot de yaourt :
+    Coût de revient : addition des charges directes et indirectes liées à la production d'un pot de yaourt.
+    Marge bénéficiaire : pourcentage de bénéfice que l'entreprise souhaite ajouter au coût de revient.
+    Prix de vente = Coût de revient + Marge bénéficiaire.
+
+4. Chiffre d'affaires :
+    Quantité vendue : nombre de pots de yaourt vendus sur une période donnée.
+    Chiffre d'affaires = Quantité vendue x Prix de vente unitaire.
+
+
+/////////details
+Types de centres de coût dans une industrie de yaourt :
+1)Centre de production
+Nature des charges :
+    Matières premières (lait, fruits secs, additifs) → Variable
+    Main d'œuvre directe → Variable
+    Énergie utilisée pour la production (électricité, gaz, eau) → Variable
+    Amortissement des machines de production → Fixe
+    Entretien des machines → Fixe
+    Unité d’œuvre : Nombre de pots de yaourt produits, ou heures de fonctionnement des machines.
+    
+2)Centre de conditionnement (emballage)
+Nature des charges :
+    Emballages (pots, étiquettes) → Variable
+    Main d'œuvre de conditionnement → Variable
+    Amortissement des machines de conditionnement → Fixe
+    Unité d’œuvre : Nombre de pots emballés.
+
+3)centre de distribution et logistique
+Nature des charges :
+    Transport et livraison des produits finis → Variable
+    Frais de carburant et d'entretien des véhicules → Variable
+    Salaires du personnel de livraison → Fixe
+    Frais généraux (location des entrepôts, etc.) → Fixe
+    Unité d’œuvre : Nombre de kilomètres parcourus ou nombre de pots livrés.
+
+4)Centre administratif (gestion et marketing)
+Nature des charges :
+    Salaires du personnel administratif → Fixe
+    Charges fixes de l'entreprise (loyer, assurance, frais bancaires) → Fixe
+    Publicité, campagnes marketing → Variable
+    Unité d’œuvre : Nombre d'unités produites ou pourcentage du chiffre d’affaires.
+
+​
+ 
