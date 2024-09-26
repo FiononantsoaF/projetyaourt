@@ -53,3 +53,4 @@ $route['default_controller'] = 'AdminController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'AdminController/login';
+$route['index'] = 'AdminController/index';
