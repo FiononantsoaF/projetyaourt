@@ -1,4 +1,4 @@
-<?
+<?php
 class SuppletiveModel extends CI_Model {
     protected $table = 'suppletive';
 
