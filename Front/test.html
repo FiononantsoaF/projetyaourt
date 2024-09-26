@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientation manuelle du texte</title>
+    <style>
+        .horizontal {
+            /* Orientation normale, pas de transformation */
+        }
+        .vertical-right {
+            writing-mode: vertical-rl;
+        }
+        .vertical-left {
+            writing-mode: vertical-lr;
+        }
+        .diagonal {
+            transform: rotate(270deg);
+            display: inline-block;
+        }
+        .inverted {
+            transform: rotate(180deg);
+            display: inline-block;
+        }
+        .sideways {
+            transform: rotate(90deg);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Différentes orientations du texte :</h2>
+    <p class="horizontal">Texte horizontal (par défaut)</p>
+    <p class="vertical-right">Texte vertical (de haut en bas, de droite à gauche)</p>
+    <p class="vertical-left">Texte vertical (de bas en haut, de gauche à droite)</p>
+    <p class="diagonal">Texte incliné (diagonal)</p>
+    <p class="inverted">Texte inversé (de bas en haut)</p>
+    <p class="sideways">Texte tourné sur le côté (sideways)</p>
+</body>
+</html>
