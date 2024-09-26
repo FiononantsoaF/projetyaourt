@@ -1,4 +1,5 @@
-<?class ChargeGeneralModel extends CI_Model {
+<?php
+class ChargeGeneralModel extends CI_Model {
     protected $table = 'chargeGeneral';
 
     public function getAllCharges() {
