@@ -30,9 +30,14 @@ VALUES
     ('Kilogramme'),
     ('Pièce');
 
--- Insertion des motifs spéciaux
-INSERT INTO motifSpecial (nomMotif) 
+-- Insertion des motifs non incorporés
+INSERT INTO nonIncorp(nomMotif) 
 VALUES 
-    ('Pénalité'),
-    ('Amende'),
-    ('Dons');
+    ('Assurance'),
+    ('Publicité');  
+
+-- Insertion des charges supplétives
+INSERT INTO suppletive(nomSupp) 
+VALUES 
+    ('Ressources Humaines & Matériel'),
+    ('DG'); 
