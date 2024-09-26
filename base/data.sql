@@ -41,3 +41,7 @@ INSERT INTO suppletive(nomSupp)
 VALUES 
     ('Ressources Humaines & Matériel'),
     ('DG'); 
+
+--Insertion admin
+INSERT INTO admin (nomAdmin, mdp)
+VALUES ('admin', 'admin'); 

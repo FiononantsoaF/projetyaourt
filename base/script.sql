@@ -73,3 +73,9 @@ CREATE TABLE chargeSupp (
     daty DATE NOT NULL,
     FOREIGN KEY (idSupp) REFERENCES suppletive(idSupp)
 );
+
+CREATE TABLE admin (
+    idAdmin INT PRIMARY KEY AUTO_INCREMENT,
+    nomAdmin VARCHAR(10),
+    mdp VARCHAR(10)
+);
