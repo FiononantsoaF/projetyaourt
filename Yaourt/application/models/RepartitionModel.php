@@ -1,4 +1,4 @@
-<?
+<?php
 class RepartitionModel extends CI_Model {
     protected $table = 'repartition';
 

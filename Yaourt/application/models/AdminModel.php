@@ -1,4 +1,4 @@
-<?
+<?php
 class AdminModel extends CI_Model {
     protected $table = 'admin';
 
@@ -33,7 +33,5 @@ class AdminModel extends CI_Model {
             return false;
         }
     }
-    
-    
 }
 ?>

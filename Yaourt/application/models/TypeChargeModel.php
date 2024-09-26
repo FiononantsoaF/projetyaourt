@@ -1,4 +1,4 @@
-<?
+<?php
 class TypeChargeModel extends CI_Model {
     protected $table = 'typeCharge';
 

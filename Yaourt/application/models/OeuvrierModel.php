@@ -1,4 +1,4 @@
-<?
+<?php
 class OeuvrierModel extends CI_Model {
     protected $table = 'oeuvrier';
 

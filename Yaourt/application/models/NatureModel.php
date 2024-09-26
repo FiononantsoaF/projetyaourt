@@ -1,4 +1,4 @@
-<?
+<?php
 class NatureModel extends CI_Model {
     protected $table = 'nature';
 
