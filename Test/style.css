@@ -1,0 +1,43 @@
+/* Ajout de l'image de fond à la barre de navigation */
+header.navbar {
+    background-image: url('Back.jpeg');
+    background-size: cover; /* Pour couvrir toute la surface */
+    background-position: center; /* Centrer l'image */
+}
+
+/* Autres styles */
+body {
+    background-color: #f5f5f5;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.nav-link.active {
+    color: #ffffff;
+}
+
+h2 {
+    color: #4A235A; /* Couleur pour le titre */
+}
+
+.btn-primary {
+    background-color: #00796b; /* Couleur des boutons de choix */
+    border: none;
+}
+
+.btn-warning {
+    background-color: #FFD700; /* Couleur jaune pour le bouton de choix */
+    border: none;
+}
+
+.btn-dark {
+    background-color: #4A235A; /* Couleur pour le bouton supplétif */
+    border: none;
+}
+
+footer {
+    background-color: #00796b;
+}
