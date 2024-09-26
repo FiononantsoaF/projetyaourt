@@ -1,4 +1,4 @@
-<?
+<?php
 class NonIncorpModel extends CI_Model {
     protected $table = 'nonIncorp';
 

@@ -1,4 +1,4 @@
-<?
+<?php
 class ChargeSuppModel extends CI_Model {
     protected $table = 'chargeSupp';
 
