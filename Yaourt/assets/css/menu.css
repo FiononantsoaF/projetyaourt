@@ -135,3 +135,16 @@ footer {
     padding: 50px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
 }
+
+/* Style pour chaque option dans le <select> */
+select option {
+  background-color: white;
+  border-bottom: solid 1px #008f8b;
+  color: #008f8b;
+}
+
+/* Changement de couleur au survol */
+select option:hover {
+  background-color: #008f8b;
+  color: white; /* Texte blanc sur fond coloré pour le contraste */
+}

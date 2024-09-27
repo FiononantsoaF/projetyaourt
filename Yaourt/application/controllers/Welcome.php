@@ -21,7 +21,6 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('insertion_charge');
-		
+		$this->load->view('charge_incorporelle');
 	}		
 }
