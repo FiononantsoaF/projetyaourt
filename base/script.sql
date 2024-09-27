@@ -59,8 +59,12 @@ CREATE TABLE repartition (
     idRepartition INT PRIMARY KEY AUTO_INCREMENT,
     idGeneral INT NOT NULL,
     idCentre INT NOT NULL,
+    idUnite INT NOT NULL,
+    idNature INT NOT NULL,
     pourcentage DECIMAL(5, 2) NOT NULL CHECK (pourcentage >= 0 AND pourcentage <= 100),
     FOREIGN KEY (idGeneral) REFERENCES chargeGeneral(idCharge),
+    FOREIGN KEY (idUnite) REFERENCES uniteOeuvre(idUnite),
+    FOREIGN KEY (idNature) REFERENCES nature(idNature),
     FOREIGN KEY (idCentre) REFERENCES centre(idCentre)
 );
 

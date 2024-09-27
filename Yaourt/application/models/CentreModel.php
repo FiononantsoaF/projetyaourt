@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 class CentreModel extends CI_Model {
     protected $table = 'centre';
