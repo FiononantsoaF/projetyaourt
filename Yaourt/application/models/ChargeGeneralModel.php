@@ -185,5 +185,99 @@
             // Fermer le fichier
             fclose($file);
         }
+
+        /////////////////////////////////   REPARTITION PAR CENTRE ///////////////////////////////////////////////
+        public function repartitionAdmin() {
+            $db = $this->load->database(); // Chargez votre base de données si nécessaire
+    
+            // Appelez la méthode somme() qui doit être définie dans votre modèle
+            $dataSomme = $this->somme($db);
+    
+            // Extraire les sommes de chaque centre
+            $somme1 = $dataSomme['sommeCentre1']; // Production
+            $somme2 = $dataSomme['sommeCentre2']; // Conditionnement
+            $somme3 = $dataSomme['sommeCentre3']; // Distribution & Logistique
+            $somme4 = $dataSomme['sommeCentre4']; // Somme administrative
+    
+            // Calculer la somme totale
+            $sommeTotal = $somme1 + $somme2 + $somme3;
+    
+            // Calculer les pourcentages pour chaque centre
+            $pourcentageCentre1 = $sommeTotal ? ($somme1 * 100) / $sommeTotal : 0;
+            $pourcentageCentre2 = $sommeTotal ? ($somme2 * 100) / $sommeTotal : 0;
+            $pourcentageCentre3 = $sommeTotal ? ($somme3 * 100) / $sommeTotal : 0;
+    
+            // Calculer les sommes administratives
+            $sommeAdmin1 = ($somme4 * $pourcentageCentre1) / 100;
+            $sommeAdmin2 = ($somme4 * $pourcentageCentre2) / 100;
+            $sommeAdmin3 = ($somme4 * $pourcentageCentre3) / 100;
+    
+            // Calculer les coûts totaux
+            $coutTotal1 = $somme1 + $sommeAdmin1;
+            $coutTotal2 = $somme2 + $sommeAdmin2;
+            $coutTotal3 = $somme3 + $sommeAdmin3;
+    
+            // Calculer le coût final
+            $coutFinal = $coutTotal1 + $coutTotal2 + $coutTotal3;
+    
+            // Formater les résultats sans number_format()
+            $resultats = [
+                [
+                    'nomCentre' => 'Production',
+                    'somme' => round($somme1, 2),
+                    'pourcentage' => round($pourcentageCentre1, 2),
+                    'sommeAdmin' => round($sommeAdmin1, 2),
+                    'coutTotal' => round($coutTotal1, 2)
+                ],
+                [
+                    'nomCentre' => 'Conditionnement',
+                    'somme' => round($somme2, 2),
+                    'pourcentage' => round($pourcentageCentre2, 2),
+                    'sommeAdmin' => round($sommeAdmin2, 2),
+                    'coutTotal' => round($coutTotal2, 2)
+                ],
+                [
+                    'nomCentre' => 'Distribution & Logistique',
+                    'somme' => round($somme3, 2),
+                    'pourcentage' => round($pourcentageCentre3, 2),
+                    'sommeAdmin' => round($sommeAdmin3, 2),
+                    'coutTotal' => round($coutTotal3, 2)
+                ],
+                [
+                    'Total' => 'Total Général',
+                    'somme' => round($sommeTotal, 2),
+                    'pourcentage' => '-',
+                    'sommeAdmin' => round($somme4, 2),
+                    'coutTotal' => round($coutFinal, 2)
+                ]
+            ];
+    
+            // Appeler la fonction fileCentre pour enregistrer les résultats
+            $this->fileCentre($resultats);
+            return $resultats; 
+        }
+    
+        public function fileCentre($data) {
+            $filename = 'repartition_centre.txt';
+            $file = fopen($filename, 'w');
+    
+            $headers = "preparation adm/distr;cout directe;cles;adm/dist;cout total\n";     
+            fwrite($file, $headers);
+    
+            foreach ($data as $row) {
+                if (isset($row['nomCentre'])) {
+                    // Pour les centres (Production, Conditionnement, Distribution & Logistique)
+                    $line = "{$row['nomCentre']};{$row['somme']};{$row['pourcentage']};{$row['sommeAdmin']};{$row['coutTotal']}\n";
+                } elseif (isset($row['Total'])) {
+                    // Pour le total général
+                    $line = "{$row['Total']};{$row['somme']};{$row['pourcentage']};{$row['sommeAdmin']};{$row['coutTotal']}\n";
+                }
+    
+                fwrite($file, $line);
+            }
+    
+            fclose($file);
+            echo "Fichier mis à jour avec succès: $filename\n";
+        }
     }
 ?>
