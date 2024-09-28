@@ -8,7 +8,7 @@ class AdminController extends CI_Controller {
         $this->load->library('session');
     }
     public function index() {
-        $this->load->view('login_view');
+        $this->load->view('login');
     }
 
     public function login() {
