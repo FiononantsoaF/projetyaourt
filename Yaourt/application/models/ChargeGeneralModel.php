@@ -1,5 +1,8 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
+    require 'vendor/autoload.php';
+    use PhpOffice\PhpSpreadsheet\Spreadsheet;
+    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
     class ChargeGeneralModel extends CI_Model {
     
@@ -184,6 +187,7 @@
     
             // Fermer le fichier
             fclose($file);
+            $this->createExcelFile($filename);
         }
 
         /////////////////////////////////   REPARTITION PAR CENTRE ///////////////////////////////////////////////
@@ -277,6 +281,7 @@
             }
     
             fclose($file);
+            $this->createExcelFileCentre($filename);
             echo "Fichier mis à jour avec succès: $filename\n";
         }
 
@@ -342,6 +347,87 @@
                 '1 boîte d\'yaourt' => round($resultat, 2),
             ];
         }
-    }
+        //////////////////////// EXCEL GRAND TABLEAU /////////////////////////////
+        private function createExcelFile($txtFilename) {
+            // Lire le contenu du fichier texte
+            $fileContent = file($txtFilename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            $data = [];
+            
+            // Extraire les en-têtes et les lignes de données
+            if (count($fileContent) > 0) {
+                $headers = str_getcsv(array_shift($fileContent), ";");
+                
+                foreach ($fileContent as $line) {
+                    $rowData = str_getcsv($line, ";");
+                    $data[] = array_combine($headers, $rowData);
+                }
+            }
+            
+            // Créer un nouveau fichier Excel
+            $spreadsheet = new Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+            
+            // Écrire les en-têtes dans le fichier Excel
+            $sheet->fromArray($headers, null, 'A1');
+            
+            // Écrire les données ligne par ligne à partir de la deuxième ligne
+            $rowNumber = 2; 
+            foreach ($data as $values) {
+                $sheet->fromArray(array_values($values), null, 'A' . $rowNumber);
+                $rowNumber++;
+            }
+            
+            // Définir le nom du fichier Excel
+            $excelFilename = 'grand_taleau.xlsx';
+            
+            // Créer un Writer pour sauvegarder le fichier Excel
+            $writer = new Xlsx($spreadsheet);
+            
+            // Enregistrer le fichier Excel dans le système de fichiers
+            $writer->save($excelFilename);
+            
+            echo "Fichier Excel mis à jour avec succès: $excelFilename\n";
+        }
 
+        private function createExcelFileCentre($txtFilename) {
+            // Lire le contenu du fichier texte
+            $fileContent = file($txtFilename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            $data = [];
+            
+            // Extraire les en-têtes et les lignes de données
+            if (count($fileContent) > 0) {
+                $headers = str_getcsv(array_shift($fileContent), ";");
+                
+                foreach ($fileContent as $line) {
+                    $rowData = str_getcsv($line, ";");
+                    $data[] = array_combine($headers, $rowData);
+                }
+            }
+            
+            // Créer un nouveau fichier Excel
+            $spreadsheet = new Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+            
+            // Écrire les en-têtes dans le fichier Excel
+            $sheet->fromArray($headers, null, 'A1');
+            
+            // Écrire les données ligne par ligne à partir de la deuxième ligne
+            $rowNumber = 2; 
+            foreach ($data as $values) {
+                $sheet->fromArray(array_values($values), null, 'A' . $rowNumber);
+                $rowNumber++;
+            }
+            
+            // Définir le nom du fichier Excel
+            $excelFilename = 'repartition.xlsx';
+            
+            // Créer un Writer pour sauvegarder le fichier Excel
+            $writer = new Xlsx($spreadsheet);
+            
+            // Enregistrer le fichier Excel dans le système de fichiers
+            $writer->save($excelFilename);
+            
+            echo "Fichier Excel mis à jour avec succès: $excelFilename\n";
+        }
+    }
 ?>
