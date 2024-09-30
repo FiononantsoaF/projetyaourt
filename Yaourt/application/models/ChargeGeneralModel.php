@@ -279,5 +279,69 @@
             fclose($file);
             echo "Fichier mis à jour avec succès: $filename\n";
         }
+
+        ///////////////////////////////////// COUT LITRE YAOURT ///////////////////////////////////////
+        public function coutLitreLait($quantite) {
+            $data = $this->repartitionAdmin();
+            
+            $coutTotal = 0;
+    
+            foreach ($data as $row) {
+                if (isset($row['nomCentre']) && $row['nomCentre'] === 'Production') {
+                    $coutTotal = (float) $row['coutTotal'];
+                    break; 
+                }
+            }
+    
+            $resultat = $quantite ? $coutTotal / $quantite : 0; 
+    
+            return [
+                'Unite d\'oeuvre' => 'litre',
+                'nombre' => $quantite,
+                'cout production' => round($coutTotal, 2),
+                'cout 1l de yaourt' => round($resultat, 2)
+            ];
+        }
+    
+        //////////////////////////////////// COUT BOITE YAOURT ////////////////////////////////////////
+        public function coutBoitYaourt($quantite) {
+            $data = $this->repartitionAdmin();
+    
+            $coutTotal1 = 0;
+            $coutTotal2 = 0;
+            $coutTotal3 = 0;
+    
+            foreach ($data as $row) {
+                if (isset($row['nomCentre'])) {
+                    $coutTotal = (float) $row['coutTotal']; 
+                    
+                    switch ($row['nomCentre']) {
+                        case 'Production':
+                            $coutTotal1 = $coutTotal;
+                            break;
+                        case 'Conditionnement':
+                            $coutTotal2 = $coutTotal;
+                            break;
+                        case 'Distribution & Logistique':
+                            $coutTotal3 = $coutTotal;
+                            break;
+                    }
+                }
+            }
+    
+            $coutTotaux = $coutTotal1 + $coutTotal2 + $coutTotal3;
+            $resultat = $quantite > 0 ? $coutTotaux / $quantite : 0;
+    
+            return [
+                'unite d\'oeuvre' => '1 boîte de yaourt',
+                'nombre' => $quantite,
+                'Production' => round($coutTotal1, 2), 
+                'Conditionnement' => round($coutTotal2, 2), 
+                'Distribution & Logistique' => round($coutTotal3, 2), 
+                'couts totaux' => round($coutTotaux, 2), 
+                '1 boîte d\'yaourt' => round($resultat, 2),
+            ];
+        }
     }
+
 ?>
