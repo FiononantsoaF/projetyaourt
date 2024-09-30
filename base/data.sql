@@ -44,5 +44,4 @@ VALUES
 
 --Insertion admin
 INSERT INTO admin (nomAdmin, mdp)
-VALUES 
-    ('admin', 'admin'); 
+VALUES ('admin', 'admin'); 

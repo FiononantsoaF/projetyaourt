@@ -24,7 +24,7 @@
 
         public function updateCharge($id, $data) {
             return $this->db->where('idCharge', $id)->update($this->table, $data);
-        }
+        } 
 
         public function deleteCharge($id) {
             return $this->db->where('idCharge', $id)->delete($this->table);

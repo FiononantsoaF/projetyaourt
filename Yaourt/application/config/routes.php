@@ -53,4 +53,6 @@ $route['default_controller'] = 'AdminController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'AdminController/login';
+$route['convert'] = 'FileController/convert_txt_to_xlsx';
+
 // $route['index'] = 'AdminController/index';

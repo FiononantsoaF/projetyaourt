@@ -1,0 +1,5 @@
+preparation adm/distr;cout directe;cles;adm/dist;cout total
+Production;0;0;0;0
+Conditionnement;2000;100;0;2000
+Distribution & Logistique;0;0;0;0
+Total Général;2000;-;0;2000
