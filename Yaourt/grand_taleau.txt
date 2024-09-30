@@ -1,2 +1,12 @@
 rubrique;total;unite d'oeuvre;nature;Production/pourcentage;Production/fixe;Production/variable;Conditionnement/pourcentage;Conditionnement/fixe;Conditionnement/variable;Distribution & Logistique/pourcentage;Distribution & Logistique/fixe;Distribution & Logistique/variable;Administration/pourcentage;Administration/fixe;Administration/variable;TotalFixe;TotalVariable
-lait;2000.00;Heure;Fixe;0.00;0;0;100.00;2000;0;0.00;0;0;0.00;0;0;2000;0
+Loyer;1000000.00;Mois;Fixe;0.00;0;0;0.00;0;0;0.00;0;0;100.00;1000000;0;1000000;0
+sucre;100000.00;Kilogramme;Fixe;100.00;100000;0;0.00;0;0;0.00;0;0;0.00;0;0;100000;0
+emballages;100000.00;Ar;Fixe;0.00;0;0;100.00;100000;0;0.00;0;0;0.00;0;0;100000;0
+cuves ;500000.00;Ar;Fixe;100.00;500000;0;0.00;0;0;0.00;0;0;0.00;0;0;500000;0
+lait;500000.00;Litre;Variable;90.00;0;450000;10.00;0;50000;0.00;0;0;0.00;0;0;0;500000
+fruits;100000.00;Kilogramme;Variable;90.00;0;90000;10.00;0;10000;0.00;0;0;0.00;0;0;0;100000
+jirama;200000.00;Mois;Variable;80.00;0;160000;10.00;0;20000;5.00;0;10000;5.00;0;10000;0;200000
+salaire ouvriers;3000000.00;Ar;Variable;50.00;0;1500000;30.00;0;900000;15.00;0;450000;5.00;0;150000;0;3000000
+fournisseurs de pots de yaourts;100000.00;Pièce;Variable;0.00;0;0;90.00;0;90000;10.00;0;10000;0.00;0;0;0;100000
+publicites;20000.00;Mois;Variable;0.00;0;0;0.00;0;0;100.00;0;20000;0.00;0;0;0;20000
+refrigerateur;1000000.00;Ar;Variable;50.00;0;500000;50.00;0;500000;0.00;0;0;0.00;0;0;0;1000000

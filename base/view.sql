@@ -1,4 +1,4 @@
-CREATE VIEW vueRepartitionComplete AS
+CREATE OR REPLACE VIEW vueRepartitionComplete AS
 SELECT
     cg.idCharge,
     cg.nomCharge,

@@ -8,9 +8,12 @@ class FichierController extends CI_Controller {
         $this->load->library('session');
     }
     public function index() {
+        $this->load->view('header.php');
         $this->ChargeGeneralModel-> repartitionAdmin();
-        $this->ChargeGeneralModel->getRepartitionData();
+        $data['repartition'] =$this->ChargeGeneralModel->getRepartitionData();
+        $this->load->view('repartitionview', $data);
     }
+    
 
  
     

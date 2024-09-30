@@ -20,13 +20,16 @@
                     <a class="nav-link" href="#">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Insertion de charge</a>
+                    <a class="nav-link" href="<?php echo base_url('AdminController/insertion_charge') ?>">Insertion de charge</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('FichierController') ?>">table general</a>
+                    <a class="nav-link" href="<?php echo base_url('FichierController') ?>">Charges general</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('FileController/convert_txt_to_xlsx') ?>">version excel</a>
+                    <a class="nav-link" href="<?php echo base_url('FileController/convert_txt_to_xlsx') ?>">Version Excel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('CoutController/calculerCouts') ?>">Cout/litre & Cout/boite</a>
                 </li>
             </ul>
         </div>

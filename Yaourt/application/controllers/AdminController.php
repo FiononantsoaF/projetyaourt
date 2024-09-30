@@ -41,9 +41,7 @@ class AdminController extends CI_Controller {
             redirect('NonIncorpController/charge_nonincorp');
         } elseif ($chargeType === 'incorp') {
             redirect('IncorpController/charge_incorp');
-            
         } elseif ($chargeType === 'supp') {
-            // Traiter la charge supplétive
         }
     }    
     

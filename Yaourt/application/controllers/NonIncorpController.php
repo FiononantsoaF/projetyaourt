@@ -21,7 +21,7 @@ class NonIncorpController extends CI_Controller {
         $charges = $this->session->userdata('charge');
         $nomcharge = $this->session->userdata('nomCharge');
         if (!is_array($charges)) {
-            $charges = array(); // Initialiser un tableau vide si ce n'est pas un tableau
+            $charges = array();
         }
         $charges[]= array(
             'nomCharge'=> $nomcharge,
@@ -32,10 +32,10 @@ class NonIncorpController extends CI_Controller {
             'pourcentages'=>array()
         );
         $this->load->model('ChargeGeneralModel');
-        var_dump($charges);
         foreach ($charges as $charge) {
             $this->ChargeGeneralModel->insertChargeGeneral($charge);
         }
+        redirect('FichierController/index');
 
     }
 

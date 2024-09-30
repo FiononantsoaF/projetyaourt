@@ -37,18 +37,17 @@ class IncorpController extends CI_Controller {
         $this->load->model('ChargeGeneralModel');
         if ($this->input->post()) {
             $montant = $this->input->post('montant');
-            $idUnite = $this->input->post('unite'); // Récupérer l'unité d'œuvre
-            $nature = $this->input->post('nature'); // Récupérer la nature
+            $idUnite = $this->input->post('unite'); 
+            $nature = $this->input->post('nature'); 
             $data=[];
 
             $nomcharge = $this->session->userdata('nomCharge');
-            if ($nature == '2') { // Charge variable
-                $centres = $this->input->post('chargeVariable'); // Centres sélectionnés
+            if ($nature == '2') {
+                $centres = $this->input->post('chargeVariable'); 
                 if (!empty($centres)) {
                     foreach ($centres as $idCentre) {
                         $pourcentage = $this->input->post('pourcentage');
                         if (!empty($pourcentage)) {
-                            // Insérer les données dans la base de données
                             $datav = [
                                 'nomCharge'=> $nomcharge,
                                 'montant' => $montant,
@@ -58,13 +57,11 @@ class IncorpController extends CI_Controller {
                                 'pourcentages' => $pourcentage
                             ];
                             $data=$datav;
-                            // $this->db->insert('votre_table', $data);
                         }
                     }
                 }
-            } elseif ($nature == '1') { // Charge fixe
-                $centreFixe = $this->input->post('chargeFixe'); // Récupérer le centre fixe sélectionné
-                // Insérez les données dans la base de données ici pour le centre fixe
+            } elseif ($nature == '1') { 
+                $centreFixe = $this->input->post('chargeFixe'); 
                 $dataFixe = [
                     'nomCharge'=> $nomcharge,
                     'montant' => $montant,
@@ -79,7 +76,7 @@ class IncorpController extends CI_Controller {
             }
             $this->load->model('ChargeGeneralModel');
             $this->ChargeGeneralModel->insertChargeGeneral($data);
-             
+            redirect('FichierController/index');
         }
     }
 

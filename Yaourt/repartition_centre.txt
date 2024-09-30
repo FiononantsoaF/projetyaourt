@@ -1,5 +1,5 @@
 preparation adm/distr;cout directe;cles;adm/dist;cout total
-Production;0;0;0;0
-Conditionnement;2000;100;0;2000
-Distribution & Logistique;0;0;0;0
-Total Général;2000;-;0;2000
+Production;3300000;60.44;701098.9;4001098.9
+Conditionnement;1670000;30.59;354798.53;2024798.53
+Distribution & Logistique;490000;8.97;104102.56;594102.56
+Total Général;5460000;-;1160000;6620000

@@ -1,6 +1,7 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
-
+    use PhpOffice\PhpSpreadsheet\Spreadsheet;
+    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
     class ChargeGeneralModel extends CI_Model {
     
         protected $table = 'chargeGeneral';
@@ -244,7 +245,7 @@
                     'coutTotal' => round($coutTotal3, 2)
                 ],
                 [
-                    'Total' => 'Total Général',
+                    'nomCentre' => 'Total Général',
                     'somme' => round($sommeTotal, 2),
                     'pourcentage' => '-',
                     'sommeAdmin' => round($somme4, 2),
@@ -342,6 +343,87 @@
                 '1 boîte d\'yaourt' => round($resultat, 2),
             ];
         }
+    //////////////////////// EXCEL GRAND TABLEAU /////////////////////////////
+    public function createExcelFile($txtFilename) {
+        // Lire le contenu du fichier texte
+        $fileContent = file($txtFilename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $data = [];
+        
+        // Extraire les en-têtes et les lignes de données
+        if (count($fileContent) > 0) {
+            $headers = str_getcsv(array_shift($fileContent), ";");
+            
+            foreach ($fileContent as $line) {
+                $rowData = str_getcsv($line, ";");
+                $data[] = array_combine($headers, $rowData);
+            }
+        }
+        
+        // Créer un nouveau fichier Excel
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        // Écrire les en-têtes dans le fichier Excel
+        $sheet->fromArray($headers, null, 'A1');
+        
+        // Écrire les données ligne par ligne à partir de la deuxième ligne
+        $rowNumber = 2; 
+        foreach ($data as $values) {
+            $sheet->fromArray(array_values($values), null, 'A' . $rowNumber);
+            $rowNumber++;
+        }
+        
+        // Définir le nom du fichier Excel
+        $excelFilename = 'grand_taleau.xlsx';
+        
+        // Créer un Writer pour sauvegarder le fichier Excel
+        $writer = new Xlsx($spreadsheet);
+        
+        // Enregistrer le fichier Excel dans le système de fichiers
+        $writer->save($excelFilename);
+        
+        echo "Fichier Excel mis à jour avec succès: $excelFilename\n";
     }
 
+    public function createExcelFileCentre($txtFilename) {
+        // Lire le contenu du fichier texte
+        $fileContent = file($txtFilename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $data = [];
+        
+        // Extraire les en-têtes et les lignes de données
+        if (count($fileContent) > 0) {
+            $headers = str_getcsv(array_shift($fileContent), ";");
+            
+            foreach ($fileContent as $line) {
+                $rowData = str_getcsv($line, ";");
+                $data[] = array_combine($headers, $rowData);
+            }
+        }
+        
+        // Créer un nouveau fichier Excel
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        // Écrire les en-têtes dans le fichier Excel
+        $sheet->fromArray($headers, null, 'A1');
+        
+        // Écrire les données ligne par ligne à partir de la deuxième ligne
+        $rowNumber = 2; 
+        foreach ($data as $values) {
+            $sheet->fromArray(array_values($values), null, 'A' . $rowNumber);
+            $rowNumber++;
+        }
+        
+        // Définir le nom du fichier Excel
+        $excelFilename = 'repartition.xlsx';
+        
+        // Créer un Writer pour sauvegarder le fichier Excel
+        $writer = new Xlsx($spreadsheet);
+        
+        // Enregistrer le fichier Excel dans le système de fichiers
+        $writer->save($excelFilename);
+        
+        echo "Fichier Excel mis à jour avec succès: $excelFilename\n";
+    }
+    }
 ?>
