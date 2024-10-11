@@ -57,7 +57,6 @@ $(document).ready(function () {
         let nature = $(this).val();
         let uniteId = $('select[name="unite"]').val(); // Récupérer l'unité sélectionnée
         
-        // Appel Ajax pour récupérer les centres correspondants
         $.ajax({
             url: nature === '1' ? 'incorporelle_fixe' : 'incorporelle_variable', // URL en fonction de la nature sélectionnée
             type: 'GET',

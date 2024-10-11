@@ -21,5 +21,9 @@ class OeuvrierModel extends CI_Model {
     public function deleteOeuvrier($id) {
         return $this->db->where('idOeuvre', $id)->delete($this->table);
     }
+    
+    public function getOeuvrierByCentre($idcentre) {
+        return $this->db->where('idCentre', $idcentre)->get($this->table)->result();
+    }
 }
 ?>

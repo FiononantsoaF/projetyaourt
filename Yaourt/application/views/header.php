@@ -31,12 +31,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('CoutController/calculerCouts') ?>">Cout/litre & Cout/boite</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('AdminController/update_charge') ?>">Update Charge</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('BesoinController/index') ?>">Besoin</a>
+                </li>
             </ul>
         </div>
     </header>
     <style>
         .titre{
-            /* border: solid; */
             float: right;
             padding-left: 200px;
             padding-right: 100px;

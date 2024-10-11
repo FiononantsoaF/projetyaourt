@@ -32,6 +32,11 @@ class AdminController extends CI_Controller {
         $this->load->view('insertion_charge');
     }
 
+    public function update_charge() {
+        $this->load->view('header');
+        $this->load->view('update_charge');
+    }
+
     public function handle_charge() {
         $chargeValue = $this->input->post('charge'); 
         $chargeType = $this->input->post('charge_type'); 

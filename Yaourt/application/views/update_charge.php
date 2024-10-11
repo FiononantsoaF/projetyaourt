@@ -29,22 +29,15 @@
                             </label>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Choix :</label>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary btn-lg" name="charge_type" value="non_incorp">
-                                Charge non incorporable
-                            </button>
-                            <button type="submit" class="btn btn-warning btn-lg" name="charge_type" value="incorp">
-                                Charge incorporable
-                            </button>
-                            <button type="submit" class="btn btn-dark btn-lg" name="charge_type" value="supp">
-                                Charge supplétive
-                            </button>
-                        </div>
-                    </div>
+                    <div> 
+                    <input required type="number" class="input" name="montant">
+                            <span class="bar"></span>
+                            <label class="label">Montant :
+                            </label>
+                    </di>
                 </form>
             </div>
+            
             <div class="col-md-6">
                 <img src="<?php echo base_url('assets/img/YaourtBon.jpg'); ?>" class="img-fluid rounded" alt="Image yaourt">
             </div>
