@@ -11,7 +11,7 @@ class BesoinController extends CI_Controller {
     }
 
     public function index() {
-        $data['besoins']= $this->ChargeModel->getAllCharges();
+        $data['besoins']= $this->ChargeModel->getMateriel();
         $data['centres']= $this->CentreModel->getAllCentres();
         $this->load->view('header');  
         $this->load->view('insertion_besoin', $data); 

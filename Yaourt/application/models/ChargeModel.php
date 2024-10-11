@@ -21,5 +21,9 @@ class ChargeModel extends CI_Model {
     public function deleteCharge($id) {
         return $this->db->where('idCharge', $id)->delete($this->table);
     }
+
+    public function getMateriel() {
+        return $this->db->where('isMateriel', "Oui")->get($this->table)->result();
+    }
 }
 ?>

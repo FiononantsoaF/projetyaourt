@@ -8,7 +8,6 @@
         
         public function index() {
         }
-
         public function getOuvrier($idCentre) {
             $data['ouvriers'] = $this->OeuvrierModel->getOeuvrierByCentre($idCentre);
             echo json_encode($data);

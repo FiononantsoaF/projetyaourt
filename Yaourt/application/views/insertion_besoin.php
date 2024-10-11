@@ -26,7 +26,6 @@
                         </select>
                     </div>
                                     
-                    <!-- Div pour afficher la liste des ouvriers -->
                     <div class="mb-3" id="ouvrierdiv"></div>       
 
                     <div class="mb-3">
@@ -41,7 +40,7 @@
 
                     <div class="mb-3">
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-dark btn-lg" name="charge_type" value="supp">
+                            <button type="submit" class="btn btn-dark btn-lg" name="charge_type" value="supp" id="confirm">
                                 Confirmer
                             </button>
                         </div>
@@ -64,23 +63,22 @@
 <script>
 $(document).ready(function () {
     $('#centre').on('change', function () {
-        let centreId = $(this).val(); // Récupérer l'identifiant du centre sélectionné
+        let centreId = $(this).val();
 
         $.ajax({
-            url: '<?php echo base_url("OuvrierController/getOuvrier/"); ?>' + centreId, // URL de la méthode AJAX
+            url: '<?php echo base_url("OuvrierController/getOuvrier/"); ?>' +'/' + centreId,
             type: 'GET',
             success: function (response) {
                 try {
-                    let ouvriers = JSON.parse(response); // Parser la réponse JSON
+                    let ouvriers = JSON.parse(response); 
                     let select = '<select name="ouvrier" class="form-select"><option value="">Sélectionnez un ouvrier</option>';
-                    
-                    // Boucler sur les ouvriers pour créer les options du select
+                
                     ouvriers.ouvriers.forEach(ouvrier => {
                         select += '<option value="' + ouvrier.idOeuvre + '">' + ouvrier.nomOeuvre + '</option>';
                     });
                     select += '</select>';
 
-                    $('#ouvrierdiv').html(select); // Mettre à jour le conteneur avec les ouvriers
+                    $('#ouvrierdiv').html(select);
                 } catch (e) {
                     alert('Erreur lors de la récupération des ouvriers : ' + e);
                 }
